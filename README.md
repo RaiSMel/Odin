@@ -1,52 +1,35 @@
 # Odin Project javascript
 
-https://raismel.github.io/Odin/library/
+
 
 # Library
 
-![GitHub repo size](https://img.shields.io/github/repo-size/RaiSMel/Odin?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/RaiSMel/Odin?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/RaiSMel/Odin?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/RaiSMel/Odin?style=for-the-badge)
-
 ![image](https://github.com/RaiSMel/Odin/assets/93801960/735434e7-3dcb-4e13-89af-2ed542727084)
 
-> Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
+> The Project Library was made focusing in practice the Object Constructors, the main gol of the project is to add the books that you already read. but you can edit if you have written something wrong.
 
 ### Ajustes e melhorias
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+O projeto se encontra finalizado:
 
-- [x] Tarefa 1
-- [x] Tarefa 2
-- [x] Tarefa 3
-- [ ] Tarefa 4
-- [ ] Tarefa 5
+- [x] create the book Objects
+- [x] All of your book objects are going to be stored in an array
+- [x] Write a function that loops through the array and displays each book on the page.
+- [x] Add a “NEW BOOK” button that brings up a form allowing users to input the details for the new book: author, title, number of pages and whether it’s been read.
+- [x] Add a button on each book’s display to remove the book from the library.
 
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-- Você instalou a versão mais recente de `<linguagem / dependência / requeridos>`
-- Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
+- Você instalou a versão mais recente de `Node.js`
 - Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
 
-## 🚀 Instalando <nome_do_projeto>
+## 🚀 Utilizando library
 
-Para instalar o <nome_do_projeto>, siga estas etapas:
+To acess the site, please, follow up the ancor below
 
-Linux e macOS:
-
-```
-<comando_de_instalação>
-```
-
-Windows:
-
-```
-<comando_de_instalação>
-```
+<a href="https://raismel.github.io/Odin/library/">click here</a>
 
 ## ☕ Usando <nome_do_projeto>
 
