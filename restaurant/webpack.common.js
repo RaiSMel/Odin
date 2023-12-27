@@ -12,9 +12,6 @@ module.exports = {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
     },
-    optimization: {
-        minimize: true,
-      },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Restaurant | Home',
