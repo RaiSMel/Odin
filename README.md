@@ -2,10 +2,6 @@
 
 The main gol of the Odin Project is to guide all people with the wish to become a good web programer, their roadmap that i'm following is at this <a href="https://www.theodinproject.com/paths/full-stack-javascript">site</a>. 
 
-## Atention
-
-The next javascrpits projects will be posted separeted.
-
 # Library
 
 ![image](https://github.com/RaiSMel/Odin/assets/93801960/735434e7-3dcb-4e13-89af-2ed542727084)
@@ -138,6 +134,8 @@ Or
 The page will be available on the following ancor:
 <a href="https://raismel.github.io/Odin/ticTacToe/">Click Here</a>
 
+## Attention
 
+The next javascrpits projects will be posted separeted.
 
 
