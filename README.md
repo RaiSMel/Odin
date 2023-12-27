@@ -1,6 +1,10 @@
 # Odin Project javascript
 
+The main gol of the Odin Project is to guide all people with the wish to become a good web programer, their roadmap that i'm following is at this <a href="https://www.theodinproject.com/paths/full-stack-javascript">site</a>. 
 
+## Atention
+
+The next javascrpits projects will be posted separeted.
 
 # Library
 
