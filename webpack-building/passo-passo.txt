@@ -1,0 +1,898 @@
+utilizando webpack tutorials https://webpack.js.org/guides/getting-started/#modules
+
+npm init -y
+npm install webpack webpack-cli --save-dev
+
+ webpack-demo
+  |- package.json
+  |- package-lock.json
+  |- index.html
+  |- /src
+    |- index.js
+
+src/index.js
+
+function component() {
+  const element = document.createElement('div');
+
+  // Lodash, currently included via a script, is required for this line to work
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+  return element;
+}
+
+document.body.appendChild(component());
+
+
+
+index.html
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Getting Started</title>
+    <script src="https://unpkg.com/lodash@4.17.20"></script>
+  </head>
+  <body>
+    <script src="./src/index.js"></script>
+  </body>
+</html>
+
+
+ {
+   "name": "webpack-demo",
+   "version": "1.0.0",
+   "description": "",
+  -"main": "index.js",
+  +"private": true,
+   "scripts": {
+     "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "MIT",
+   "devDependencies": {
+     "webpack": "^5.38.1",
+     "webpack-cli": "^4.7.2"
+   }
+ }
+
+   webpack-demo
+  |- package.json
+  |- package-lock.json
+
+ +|- /dist
+   +|- index.html
+ -|- index.html
+  |- /src
+    |- index.js
+
+
+npm install --save lodash
+
+
+src/index.js
+
+import _ from 'lodash';
+
+dist/index.html
+
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8" />
+     <title>Getting Started</title>
+-    <script src="https://unpkg.com/lodash@4.17.20"></script>
+
+   </head>
+   <body>
+-   <script src="./src/index.js"></script>
++   <script src="main.js"></script>
+   </body>
+ </html>
+
+ $ npx webpack
+
+   webpack-demo
+  |- package.json
+  |- package-lock.json
++ |- webpack.config.js
+  |- /dist
+    |- index.html
+  |- /src
+    |- index.js
+
+
+webpack.config.js
+
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+};
+
+npx webpack --config webpack.config.js
+
+
+package.json
+
+ {
+   "name": "webpack-demo",
+   "version": "1.0.0",
+   "description": "",
+   "private": true,
+   "scripts": {
+-   "test": "echo \"Error: no test specified\" && exit 1",
++   "test": "echo \"Error: no test specified\" && exit 1",
++   "build": "webpack"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "devDependencies": {
+     "webpack": "^5.4.0",
+     "webpack-cli": "^4.2.0"
+   },
+   "dependencies": {
+     "lodash": "^4.17.20"
+   }
+ }
+
+ npm run build
+
+
+
+ 
+
+
+using images, css and similars
+
+
+
+
+
+dist/index.html
+
+<!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8" />
++    <title>Asset Management</title>
+   </head>
+   <body>
++    <script src="bundle.js"></script>
+   </body>
+ </html>
+ 
+ webpack.config.js
+
+ const path = require('path');
+
+ module.exports = {
+   entry: './src/index.js',
+   output: {
++    filename: 'bundle.js',
+     path: path.resolve(__dirname, 'dist'),
+   },
+ };
+
+ npm install --save-dev style-loader css-loader
+
+ webpack.config.js
+
+ const path = require('path');
+
+ module.exports = {
+   entry: './src/index.js',
+   output: {
+     filename: 'bundle.js',
+     path: path.resolve(__dirname, 'dist'),
+   },
++  module: {
++    rules: [
++      {
++        test: /\.css$/i,
++        use: ['style-loader', 'css-loader'],
++      },
++    ],
++  },
+ };
+
+
+ project
+
+  webpack-demo
+  |- package.json
+  |- package-lock.json
+  |- webpack.config.js
+  |- /dist
+    |- bundle.js
+    |- index.html
+  |- /src
++   |- style.css
+    |- index.js
+  |- /node_modules
+
+  src/style.css
+
+  .hello {
+  color: red;
+}
+
+src/index.js
+
+ import _ from 'lodash';
++import './style.css';
+
+ function component() {
+   const element = document.createElement('div');
+
+   // Lodash, now imported by this script
+   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
++  element.classList.add('hello');
+
+   return element;
+ }
+
+ document.body.appendChild(component());
+
+ npm run build
+
+const path = require('path');
+
+ module.exports = {
+   entry: './src/index.js',
+   output: {
+     filename: 'bundle.js',
+     path: path.resolve(__dirname, 'dist'),
+   },
+   module: {
+     rules: [
+       {
+         test: /\.css$/i,
+         use: ['style-loader', 'css-loader'],
+       },
++      {
++        test: /\.(png|svg|jpg|jpeg|gif)$/i,
++        type: 'asset/resource',
++      },
+     ],
+   },
+ };
+
+
+ project
+
+  webpack-demo
+  |- package.json
+  |- package-lock.json
+  |- webpack.config.js
+  |- /dist
+    |- bundle.js
+    |- index.html
+  |- /src
++   |- icon.png
+    |- style.css
+    |- index.js
+  |- /node_modules
+
+
+  src/index.js
+
+ import _ from 'lodash';
+ import './style.css';
++import Icon from './icon.png';
+
+ function component() {
+   const element = document.createElement('div');
+
+   // Lodash, now imported by this script
+   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+   element.classList.add('hello');
+
++  // Add the image to our existing div.
++  const myIcon = new Image();
++  myIcon.src = Icon;
+
++  element.appendChild(myIcon);
+
+   return element;
+ }
+
+ document.body.appendChild(component());
+
+
+ src/style.css
+
+ .hello {
+   color: red;
++  background: url('./icon.png');
+ }
+
+
+npm run build
+
+
+webpack.config.js
+
+ const path = require('path');
+
+ module.exports = {
+   entry: './src/index.js',
+   output: {
+     filename: 'bundle.js',
+     path: path.resolve(__dirname, 'dist'),
+   },
+   module: {
+     rules: [
+       {
+         test: /\.css$/i,
+         use: ['style-loader', 'css-loader'],
+       },
+       {
+         test: /\.(png|svg|jpg|jpeg|gif)$/i,
+         type: 'asset/resource',
+       },
++      {
++        test: /\.(woff|woff2|eot|ttf|otf)$/i,
++        type: 'asset/resource',
++      },
+     ],
+   },
+ };
+
+
+ project
+
+  webpack-demo
+  |- package.json
+  |- package-lock.json
+  |- webpack.config.js
+  |- /dist
+    |- bundle.js
+    |- index.html
+  |- /src
++   |- my-font.woff
++   |- my-font.woff2
+    |- icon.png
+    |- style.css
+    |- index.js
+  |- /node_modules
+
+
+src/style.css
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('./my-font.woff2') format('woff2'),
+    url('./my-font.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+ .hello {
+   color: red;
++  font-family: 'MyFont';
+   background: url('./icon.png');
+ }
+
+
+ npm install --save-dev csv-loader xml-loader
+
+
+ webpack.config.js
+
+ const path = require('path');
+
+ module.exports = {
+   entry: './src/index.js',
+   output: {
+     filename: 'bundle.js',
+     path: path.resolve(__dirname, 'dist'),
+   },
+   module: {
+     rules: [
+       {
+         test: /\.css$/i,
+         use: ['style-loader', 'css-loader'],
+       },
+       {
+         test: /\.(png|svg|jpg|jpeg|gif)$/i,
+         type: 'asset/resource',
+       },
+       {
+         test: /\.(woff|woff2|eot|ttf|otf)$/i,
+         type: 'asset/resource',
+       },
++      {
++        test: /\.(csv|tsv)$/i,
++        use: ['csv-loader'],
++      },
++      {
++        test: /\.xml$/i,
++        use: ['xml-loader'],
++      },
+     ],
+   },
+ };
+
+
+ project
+
+  webpack-demo
+  |- package.json
+  |- package-lock.json
+  |- webpack.config.js
+  |- /dist
+    |- bundle.js
+    |- index.html
+  |- /src
++   |- data.xml
++   |- data.csv
+    |- my-font.woff
+    |- my-font.woff2
+    |- icon.png
+    |- style.css
+    |- index.js
+  |- /node_modules
+
+
+src/data.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<note>
+  <to>Mary</to>
+  <from>John</from>
+  <heading>Reminder</heading>
+  <body>Call Cindy on Tuesday</body>
+</note>
+
+src/data.csv
+
+to,from,heading,body
+Mary,John,Reminder,Call Cindy on Tuesday
+Zoe,Bill,Reminder,Buy orange juice
+Autumn,Lindsey,Letter,I miss you
+
+
+src/index.js
+
+ import _ from 'lodash';
+ import './style.css';
+ import Icon from './icon.png';
++import Data from './data.xml';
++import Notes from './data.csv';
+
+ function component() {
+   const element = document.createElement('div');
+
+   // Lodash, now imported by this script
+   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+   element.classList.add('hello');
+
+   // Add the image to our existing div.
+   const myIcon = new Image();
+   myIcon.src = Icon;
+
+   element.appendChild(myIcon);
+
++  console.log(Data);
++  console.log(Notes);
+
+   return element;
+ }
+
+ document.body.appendChild(component());
+
+
+ // No warning
+import data from './data.json';
+
+// Warning shown, this is not allowed by the spec.
+import { foo } from './data.json';
+
+src/data.toml
+
+title = "TOML Example"
+
+[owner]
+name = "Tom Preston-Werner"
+organization = "GitHub"
+bio = "GitHub Cofounder & CEO\nLikes tater tots and beer."
+dob = 1979-05-27T07:32:00Z
+
+src/data.yaml
+
+title: YAML Example
+owner:
+  name: Tom Preston-Werner
+  organization: GitHub
+  bio: |-
+    GitHub Cofounder & CEO
+    Likes tater tots and beer.
+  dob: 1979-05-27T07:32:00.000Z
+src/data.json5
+
+{
+  // comment
+  title: 'JSON5 Example',
+  owner: {
+    name: 'Tom Preston-Werner',
+    organization: 'GitHub',
+    bio: 'GitHub Cofounder & CEO\n\
+Likes tater tots and beer.',
+    dob: '1979-05-27T07:32:00.000Z',
+  },
+}
+
+npm install toml yamljs json5 --save-dev
+
+
+
+webpack.config.js
+
+ const path = require('path');
++const toml = require('toml');
++const yaml = require('yamljs');
++const json5 = require('json5');
+
+ module.exports = {
+   entry: './src/index.js',
+   output: {
+     filename: 'bundle.js',
+     path: path.resolve(__dirname, 'dist'),
+   },
+   module: {
+     rules: [
+       {
+         test: /\.css$/i,
+         use: ['style-loader', 'css-loader'],
+       },
+       {
+         test: /\.(png|svg|jpg|jpeg|gif)$/i,
+         type: 'asset/resource',
+       },
+       {
+         test: /\.(woff|woff2|eot|ttf|otf)$/i,
+         type: 'asset/resource',
+       },
+       {
+         test: /\.(csv|tsv)$/i,
+         use: ['csv-loader'],
+       },
+       {
+         test: /\.xml$/i,
+         use: ['xml-loader'],
+       },
++      {
++        test: /\.toml$/i,
++        type: 'json',
++        parser: {
++          parse: toml.parse,
++        },
++      },
++      {
++        test: /\.yaml$/i,
++        type: 'json',
++        parser: {
++          parse: yaml.parse,
++        },
++      },
++      {
++        test: /\.json5$/i,
++        type: 'json',
++        parser: {
++          parse: json5.parse,
++        },
++      },
+     ],
+   },
+ };
+
+ src/index.js
+
+ import _ from 'lodash';
+ import './style.css';
+ import Icon from './icon.png';
+ import Data from './data.xml';
+ import Notes from './data.csv';
++import toml from './data.toml';
++import yaml from './data.yaml';
++import json from './data.json5';
+
++console.log(toml.title); // output `TOML Example`
++console.log(toml.owner.name); // output `Tom Preston-Werner`
+
++console.log(yaml.title); // output `YAML Example`
++console.log(yaml.owner.name); // output `Tom Preston-Werner`
+
++console.log(json.title); // output `JSON5 Example`
++console.log(json.owner.name); // output `Tom Preston-Werner`
+
+ function component() {
+   const element = document.createElement('div');
+
+   // Lodash, now imported by this script
+   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+   element.classList.add('hello');
+
+   // Add the image to our existing div.
+   const myIcon = new Image();
+   myIcon.src = Icon;
+
+   element.appendChild(myIcon);
+
+   console.log(Data);
+   console.log(Notes);
+
+   return element;
+ }
+
+ document.body.appendChild(component());
+
+ 
+ -|- /asssets
+ +|– /components
+ +|  |– /my-component
+ +|  |  |– index.jsx
+ +|  |  |– index.css
+ +|  |  |– icon.svg
+ +|  |  |– img.png
+
+
+   webpack-demo
+  |- package.json
+  |- package-lock.json
+  |- webpack.config.js
+  |- /dist
+    |- bundle.js
+    |- index.html
+  |- /src
+-  |- data.csv
+-  |- data.json5
+-  |- data.toml
+-  |- data.xml
+-  |- data.yaml
+-  |- icon.png
+-  |- my-font.woff
+-  |- my-font.woff2
+-  |- style.css
+   |- index.js
+  |- /node_modules
+
+
+
+  webpack.config.js
+
+ const path = require('path');
+-const toml = require('toml');
+-const yaml = require('yamljs');
+-const json5 = require('json5');
+
+ module.exports = {
+   entry: './src/index.js',
+   output: {
+     filename: 'bundle.js',
+     path: path.resolve(__dirname, 'dist'),
+   },
+/* tirar todas linhas seguintes */
+   module: {
+     rules: [
+       {
+         test: /\.css$/i,
+         use: ['style-loader', 'css-loader'],
+       },
+       {
+         test: /\.(png|svg|jpg|jpeg|gif)$/i,
+         type: 'asset/resource',
+       },
+       {
+         test: /\.(woff|woff2|eot|ttf|otf)$/i,
+         type: 'asset/resource',
+       },
+       {
+         test: /\.(csv|tsv)$/i,
+         use: ['csv-loader'],
+       },
+       {
+         test: /\.xml$/i,
+         use: ['xml-loader'],
+       },
++      {
++        test: /\.toml$/i,
++        type: 'json',
++        parser: {
++          parse: toml.parse,
++        },
++      },
++      {
++        test: /\.yaml$/i,
++        type: 'json',
++        parser: {
++          parse: yaml.parse,
++        },
++      },
++      {
++        test: /\.json5$/i,
++        type: 'json',
++        parser: {
++          parse: json5.parse,
++        },
++      },
+     ],
+   },
+   /* até aqui */
+ };
+
+
+src/index.js
+
+ import _ from 'lodash';
+ /* --- */
+ import './style.css';
+ import Icon from './icon.png';
+ import Data from './data.xml';
+ import Notes from './data.csv';
+ import toml from './data.toml';
+ import yaml from './data.yaml';
+ import json from './data.json5';
+
+console.log(toml.title); // output `TOML Example`
+console.log(toml.owner.name); // output `Tom Preston-Werner`
+
+console.log(yaml.title); // output `YAML Example`
+console.log(yaml.owner.name); // output `Tom Preston-Werner`
+
+console.log(json.title); // output `JSON5 Example`
+console.log(json.owner.name); // output `Tom Preston-Werner`
+
+/* --- */
+
+ function component() {
+   const element = document.createElement('div');
+
+-   // Lodash, now imported by this script
+   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+-   element.classList.add('hello');
+
+-   // Add the image to our existing div.
+-   const myIcon = new Image();
+-   myIcon.src = Icon;
+
+-   element.appendChild(myIcon);
+
+-   console.log(Data);
+-   console.log(Notes);
+
+   return element;
+ }
+
+ document.body.appendChild(component());
+
+
+ npm uninstall css-loader csv-loader json5 style-loader toml xml-loader yamljs
+
+
+ instalar o webpack-plugins
+
+ npm i --save-dev html-webpack-plugin
+
+ https://github.com/jantimon/html-webpack-plugin#options options to use plugins: [ new HtmlWebpackPlugin({ options })],
+
+ 
+ 
+ webpack.config.js
+
+  todos arquivos que serão utilizados na aplicação serão enviados pelo entry 
+
+  entry: {
+    index: './src/index.js',
+    print: './src/print.js'
+  },
+
+  aqui será a saida o arquivo de producao que possui [name] indicando o nome do arquivo de saida e dist para a pasta de saida
+
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
+
+
+There are a lot of different options available when it comes to source maps. Be sure to check them out so you can configure them to your needs.
+https://webpack.js.org/configuration/devtool/
+npm install --save-dev webpack-dev-server  
+
+webpack.config.js
+
+ module.exports = {
+ + mode: 'development',
+   entry: {
+     index: './src/index.js',
+     print: './src/print.js',
+   },
+ + devtool: 'inline-source-map',
+ +  devServer: {
+ +  static: './dist',
+ + },
+   plugins: [
+     new HtmlWebpackPlugin({
+  +    title: 'Development',
+     }),
+   ],
+
+  depois do atributo de output 
+  
+  optimization: {
+    runtimeChunk: 'single',
+  },
+
+Usando watch mode
+
+package.json
+em scripts adicionar
+ "watch": "webpack --watch",
+ "start": "webpack serve --open",
+
+webpack.config.js
+
+devServer: {
+    static: './dist',
+  },
+optimization: {
+    runtimeChunk: 'single',
+  },
+
+npm install --save-dev express webpack-dev-middleware
+
+webpack.config.js
+
+adicionar em output
+publicPath: '/',
+
+
+projeto
+  webpack-demo
+  |- package.json
+  |- package-lock.json
+  |- webpack.config.js
++ |- server.js
+  |- /dist
+  |- /src
+    |- index.js
+    |- print.js
+  |- /node_modules
+
+
+server.js
+
+const express = require('express');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+
+const app = express();
+const config = require('./webpack.config.js');
+const compiler = webpack(config);
+
+// Tell express to use the webpack-dev-middleware and use the webpack.config.js
+// configuration file as a base.
+app.use(
+  webpackDevMiddleware(compiler, {
+    publicPath: config.output.publicPath,
+  })
+);
+
+// Serve the files on port 3000.
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!\n');
+});
+
+package.js
+
+adicionar dentro de scripts
+"server": "node server.js",

@@ -1,0 +1,234 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    outline: 0px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+header {
+    height: 60px;
+    margin-bottom: 40px;
+    box-shadow: 2px 2px 15px;
+}
+
+.list {
+    align-items: center;
+    background-color: #111;
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0 20px;
+}
+
+.title {
+    color: #dedede;
+    font-size: 1.5rem;
+}
+
+.add {
+    background-color: #333;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 3px 10px;
+    transition: .3s all;
+}
+
+.add:hover {
+    background-color: #eee;
+    border: 1px solid;
+    color: #333;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+
+
+main {
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.books {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.book {
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px #666;
+    box-sizing: border-box;
+    display: flex;
+    row-gap: 8px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px 5px;
+    width: min(calc(20% - 10px));
+}
+
+.bo__title {
+    font-weight: 700;
+    font-size: .8rem;
+    width: 100%;
+    text-align: center;
+}
+
+.bo__img {
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+}
+
+.bo__description {
+    font-size: .9rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.bo__description:nth-child(2) {
+    width: 30%;
+}
+
+.bo__co__button {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.book a {
+    border: 1px solid;
+    font-weight: bold;
+    padding: 2px 5px;
+    width: 50%;
+    height: 20px;
+    text-align: center;
+}
+
+.book a:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.book a:nth-child(1) {
+    border-right: none;
+}
+
+.bo__button--edit {
+    background-color: rgb(69, 186, 244);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.bo__button--remove {
+    background-color: rgb(255, 69, 69);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.bo__button--edit:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 170, 255);
+}
+
+.bo__button--remove:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 69, 69);
+}
+
+dialog {
+    align-items: center;
+    background-color: #00000066;
+    border: none;
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+}
+
+.formAdd,
+.formEdit {
+    background-color: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    height: 380px;
+    padding: 20px;
+    row-gap: 3px;
+    width: 240px;
+}
+
+.fa__labels {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.fa__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.fa__button {
+    border: 1px solid;
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 3px;
+    width: 45%;
+}
+
+.fa__button:hover {
+    transform: scale(1.1);
+}
+
+#fa__button--edit {
+    background-color: rgb(41, 241, 255);
+}
+
+#fa__button--close {
+    background-color: rgb(255, 41, 41);
+}
+
+@media screen and (max-width: 1000px) {
+    .book {
+        width: calc( 25% - 9px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .book {
+        width: calc( 33.3% - 8px);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .book {
+        width: calc( 50% - 6px );
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .book {
+        width: 100%;
+    }
+}

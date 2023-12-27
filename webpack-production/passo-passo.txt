@@ -1,0 +1,111 @@
+https://webpack.js.org/guides/production/
+In production, our goals shift to a focus on minified bundles, lighter weight source maps, and optimized assets to improve load time.
+
+npm install --save-dev webpack-merge
+
+  webpack-demo
+  |- package.json
+  |- package-lock.json
++ |- webpack.common.js
++ |- webpack.dev.js
++ |- webpack.prod.js
+  |- /dist
+  |- /src
+    |- index.js
+    |- math.js
+  |- /node_modules
+
+
+webpack.common.js
+
+ const path = require('path');
+ const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+ module.exports = {
+   entry: {
+     app: './src/index.js',
+   },
+   plugins: [
+     new HtmlWebpackPlugin({
+       title: 'Production',
+     }),
+   ],
+   output: {
+     filename: '[name].bundle.js',
+     path: path.resolve(__dirname, 'dist'),
+     clean: true,
+   },
+ };
+
+webpack.dev.js
+
+ const { merge } = require('webpack-merge');
+ const common = require('./webpack.common.js');
+
+ module.exports = merge(common, {
+   mode: 'development',
+   devtool: 'inline-source-map',
+   devServer: {
+     static: './dist',
+   },
+ });
+
+
+webpack.prod.js
+
+ const { merge } = require('webpack-merge');
+ const common = require('./webpack.common.js');
+
+ module.exports = merge(common, {
+   mode: 'production',
+ });
+
+
+ package.json
+
+   "scripts": {
+     "start": "webpack serve --open --config webpack.dev.js",
+     "build": "webpack --config webpack.prod.js"
+    },
+
+
+src/index.js
+
+  import { cube } from './math.js';
+
+ if (process.env.NODE_ENV !== 'production') {
+   console.log('Looks like we are in development mode!');
+ }
+
+  function component() {
+    const element = document.createElement('pre');
+
+    element.innerHTML = [
+      'Hello webpack!',
+      '5 cubed is equal to ' + cube(5)
+    ].join('\n\n');
+
+    return element;
+  }
+
+  document.body.appendChild(component());
+
+ webpack.prod.js 
+
+ const { merge } = require('webpack-merge');
+  const common = require('./webpack.common.js');
+
+  module.exports = merge(common, {
+    mode: 'production',
+   devtool: 'source-map',
+  });
+
+
+adding into webpack to minimize
+
+module.exports = {
+  //...
+  optimization: {
+    minimize: false,
+  },
+};

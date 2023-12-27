@@ -1,0 +1,142 @@
+.main {
+    background-color: black;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    justify-content: center;
+    height: 100vh;
+    max-height: 100vh;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    width: calc(100vw - 140px);
+    --button-activated: 0px;
+}
+
+.container--buttons {
+    background-color: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+}
+
+.container--buttons:before {
+    background-color: #00000055;
+    content: '';
+    width: 51%;
+    height: 50px;
+    position: absolute;
+    right: var(--button-activated);
+    transition: .5s all;
+    top: 0;
+    z-index: 1;
+}
+
+.container--buttons::after {
+    content: "|";
+    font-size: 2.5rem;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transform: translateX(94px);
+    z-index: 2;
+}
+
+.cb--button {
+    font-weight: bold;
+    z-index: 2;
+}
+
+.container--cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    height: 80%;
+    filter: drop-shadow(4px 4px 5px #222);
+    transition: 3s all;
+}
+
+.card {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
+    height: 35vh;
+    width: 26vw;
+}
+
+.card:nth-child(1n + 4) {
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+
+.apresentacao {
+    box-sizing: border-box;
+    color: white;
+    height: 100%;
+    overflow: hidden;
+    transition: .5s all;
+    text-align: center;
+    width: 0;
+}
+
+.card:hover .apresentacao {
+    width: 100%;
+    background-color: #000000dd;
+}
+
+.card--title {
+    font-size: 1.4rem;
+    transform: translatey(-40px);
+}
+
+.card--text {
+    margin: 20px auto;
+    text-align: justify;
+    transform: translatey(-40px);
+    width: 80%;
+}
+
+/* reponsivo */
+
+@media screen and (max-width: 767px) {
+
+    .main {
+        width: 100vw;
+        top: 15vh;
+        min-height: 100vh;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .main {
+        height: 140vh;
+        max-height: none;
+    }
+
+    .container--cards {
+        height: 85%;
+    }
+
+    .card {
+        width: 46vw;
+        clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
+    }
+
+    .card:nth-child(1n + 3) {
+        clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    }
+    
+    .card:nth-child(1n + 5) {
+        clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
+    }
+}
+

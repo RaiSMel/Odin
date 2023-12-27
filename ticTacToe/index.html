@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC TAC TOE</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <main>
+        <section class="game init">
+            <h1 class="title--site">TIC TAC TOE</h1>
+            <div class="stickH"></div>
+            <div class="stickV"></div>
+            <div class="gameInit">
+                <input type="button" name="gi__initialize" id="gi__initialize" role="button" value="initialize"
+                    data-init>
+            </div>
+            <div class="gameStart gsc1">
+                <div class="gs__container">
+                    <h2 class="gs__title">Player1</h2>
+                    <button class="gs__check" name="gs__p1" id="gs__p1--player" data-player1="player">Player</button>
+                    <button class="gs__check" name="gs__p1" id="gs__p1--cpu" data-player1="CPU">CPU</button>
+                </div>
+                <div class="gs__container gsc2">
+                    <h2 class="gs__title">Player2</h2>
+                    <button class="gs__check" id="gs__p2--player" data-player2="player">Player</button>
+                    <button class="gs__check" id="gs__p2--cpu" data-player2="CPU">CPU</button>
+                </div>
+                <input type="button" role="button" name="gs__start" id="gs__start" value="START" data-start>
+
+            </div>
+            <div class="gamePlaying">
+                <p class="gp__play gp__item--00"></p>
+                <p class="gp__play gp__item--01"></p>
+                <p class="gp__play gp__item--02"></p>
+                <p class="gp__play gp__item--10"></p>
+                <p class="gp__play gp__item--11"></p>
+                <p class="gp__play gp__item--12"></p>
+                <p class="gp__play gp__item--20"></p>
+                <p class="gp__play gp__item--21"></p>
+                <p class="gp__play gp__item--22"></p>
+            </div>
+            <div class="gameWinner">
+                <h3 class="w__title"></h3>
+                <input type="button" role="button" name="w__restart" id="w__restart" value="restart" data-restart>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>

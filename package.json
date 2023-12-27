@@ -1,0 +1,26 @@
+{
+  "name": "packeage",
+  "version": "1.0.0",
+  "description": "https://raismel.github.io/OdinJS/library/\r https://raismel.github.io/OdinJS/ticTacToe/",
+  "main": "ES6_Modules.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gh-deploy": "git push origin && git subtree push --prefix dist origin gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaiSMel/OdinJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RaiSMel/OdinJS/issues"
+  },
+  "homepage": "https://github.com/RaiSMel/OdinJS#readme",
+  "dependencies": {
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  }
+}

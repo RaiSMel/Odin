@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Library</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <ul class="list">
+                <li class="li__items"><h1 class="title">Books to Read</h1></li>
+                <li class="li__items"><a role="button" class="li__links add" data-add>+</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="library">
+            <div class="books">
+
+
+            </div>
+        </section>
+    </main>
+
+    <dialog class="dialog__add">
+        <div class="container">
+
+            <form class="formAdd" action="">
+                <legend>ADD Book</legend>
+
+                <label class="fa__labels" for="fa__title">Title:</label>
+                <input id="fa__title" name="fa__title" type="text" data-faTitle required>
+
+                <label class="fa__labels" for="fa__imgUrl">Imagem Url:</label>
+                <input id="fa__imgUrl" name="fa__imgUrl" type="text" data-faImgUrl required>
+
+                <label class="fa__labels" for="fa__author">Author:</label>
+                <input id="fa__author" name="fa__author" type="text" data-faAuthor required>
+
+                <label class="fa__labels" for="fa__pages">Pages:</label>
+                <input id="fa__pages" name="fa__pages" type="number" data-faPages required>
+
+                <div class="fa__container">
+                    <label class="fa__labels" for="fa__read">Read:</label>
+                    <input id="fa__read" name="fa__read" type="checkbox" data-faRead required>
+                </div>
+
+                <div class="fa__container">
+                    <input id="fa__button--edit" type="submit" class="fa__button" value="add" data-buttonAdd>
+                    <input id="fa__button--close" type="button" class="fa__button" value="close" data-abuttonClose>
+                </div>
+            </form>
+
+        </div>
+    </dialog>
+
+    <dialog class="dialog__edit">
+        <div class="container">
+
+            <form class="formEdit">
+                <legend>ADD Book</legend>
+
+                <label class="fa__labels" for="fa__title">Title:</label>
+                <input id="fa__title" name="fa__title" type="text" data-feTitle required>
+
+                <label class="fa__labels" for="fa__imgUrl">Imagem Url:</label>
+                <input id="fa__imgUrl" name="fa__imgUrl" type="text" data-feImgUrl required>
+
+                <label class="fa__labels" for="fa__author">Author:</label>
+                <input id="fa__author" name="fa__author" type="text" data-feAuthor required>
+
+                <label class="fa__labels" for="fa__pages">Pages:</label>
+                <input id="fa__pages" name="fa__pages" type="number" data-fePages required>
+
+                <div class="fa__container">
+                    <label class="fa__labels" for="fa__read">Read:</label>
+                    <input id="fa__read" name="fa__read" type="checkbox" data-feRead required>
+                </div>
+
+                <div class="fa__container">
+                    <input id="fa__button--edit" type="button" class="fa__button" value="save" data-buttonEdit>
+                    <input id="fa__button--close" type="button" class="fa__button" value="close" data-ebuttonClose>
+                </div>
+            </form>
+
+        </div>
+    </dialog>
+
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>

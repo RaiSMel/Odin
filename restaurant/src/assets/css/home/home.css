@@ -1,0 +1,7 @@
+/* importa todos os css utilizado em comun pelos arquivos */
+/* como header, footer que aparecerão em todas partes do site */
+@import url('../style.css');
+
+/* importando partes únicas que serão utilizadas nessa pagina em especifico */
+
+@import url('./main.css');
