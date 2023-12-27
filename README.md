@@ -129,16 +129,11 @@ npm run build
 
 Now you just have to open the file index.html at the restaurant/dist/
 
-The code will be available on the following ancor:
+Or
+
+The page will be available on the following ancor:
 <a href="https://raismel.github.io/Odin/ticTacToe/">Click Here</a>
 
 
-## 📫 Contribuindo para <nome_do_projeto>
 
-Para contribuir com <nome_do_projeto>, siga estas etapas:
 
-1. Bifurque este repositório.
-2. Crie um branch: `git checkout -b <nome_branch>`.
-3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
-4. Envie para o branch original: `git push origin <nome_do_projeto> / <local>`
-5. Crie a solicitação de pull.
