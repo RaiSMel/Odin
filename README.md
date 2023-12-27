@@ -6,7 +6,7 @@
 
 ![image](https://github.com/RaiSMel/Odin/assets/93801960/735434e7-3dcb-4e13-89af-2ed542727084)
 
-> The Project Library was made focusing in practice the Object Constructors, the main gol of the project is to add the books that you already read. but you can edit if you have written something wrong.
+> The Project Library was made focusing in practice the Object Constructors, the main gol of the project is to add the books that you already read or want to read and you can edit the book if you have written something wrong.
 
 ### Adjusts and improvements
 
@@ -30,6 +30,34 @@ Before start, you will need to:
 To acess the site, please, follow up the ancor below:
 
 <a href="https://raismel.github.io/Odin/library/">click here</a>
+
+# Tit Tac Toe
+
+![image](https://github.com/RaiSMel/Odin/assets/93801960/1952876f-485c-46f0-a98e-8c5e3efb434d)
+
+> The Project Tic Tac Toe has been made to play with your friends or you can play with a cpu that randomize a move. I hope that you guys have fun playing it.
+
+### Adjusts and improvements
+
+The project has been completed:
+
+- [x] You’re going to store the gameboard as an array inside of a Gameboard object
+- [x] Focus on getting a working game in the console first.
+- [x] Once you have a working console game, create an object that will handle the display/DOM logic.
+- [x] Write the functions that allow players to add marks to a specific spot on the board by interacting with the appropriate DOM elements (e.g. letting players click on a board square to place their marker).
+
+## 💻 Requirements
+
+Before start, you will need to:
+
+- Have a browser.
+- Acess to the internet.
+
+## ☕ Using Tic Tac Toe
+
+To acess the site, please, follow up the ancor below:
+
+<a href="https://raismel.github.io/Odin/ticTacToe/">click here</a>
 
 
 
