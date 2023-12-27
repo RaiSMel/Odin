@@ -10,7 +10,7 @@ https://raismel.github.io/Odin/library/
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/RaiSMel/Odin?style=for-the-badge)
 
-<img src="" alt="Exemplo imagem">
+![image](https://github.com/RaiSMel/Odin/assets/93801960/735434e7-3dcb-4e13-89af-2ed542727084)
 
 > Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
 
