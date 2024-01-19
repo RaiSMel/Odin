@@ -132,7 +132,7 @@ Now you just have to open the file index.html at the restaurant/dist/
 Or
 
 The page will be available on the following ancor:
-<a href="https://raismel.github.io/Odin/ticTacToe/">Click Here</a>
+<a href="https://raismel.github.io/Odin/restaurant/dist/">Click Here</a>
 
 ## Attention
 
